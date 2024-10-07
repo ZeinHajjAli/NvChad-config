@@ -1,0 +1,3 @@
+-- local opts = require "nvchad.configs.nvimtree"
+-- opts.view.side = "right"
+-- return opts
