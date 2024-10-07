@@ -244,7 +244,10 @@ return {
     -- lazy = false,
     branch = "regexp", -- This is the regexp branch, use this for the new version
     config = function()
-      require("venv-selector").setup()
+      local opts = require "configs.venv-selector-config"
+      require("venv-selector").setup {
+        changed_venv_hooks = { opts.ruff_hook },
+      }
     end,
   },
 
