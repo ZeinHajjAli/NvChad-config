@@ -246,7 +246,7 @@ return {
     config = function()
       local opts = require "configs.venv-selector-config"
       require("venv-selector").setup {
-        changed_venv_hooks = { opts.ruff_hook },
+        changed_venv_hooks = { opts.ruff_hook, opts.nullLs_hook },
       }
     end,
   },
