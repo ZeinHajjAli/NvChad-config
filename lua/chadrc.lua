@@ -12,10 +12,16 @@ M.mason = {
     "pyright",
     "black",
     "debugpy",
+    "tailwindcss-language-server",
     "typescript-language-server",
     "eslint-lsp",
     "prettierd",
     "js-debug-adapter",
+    "gopls",
+    "gofumpt",
+    "goimports-reviser",
+    "golines",
+    "delve",
   },
 }
 

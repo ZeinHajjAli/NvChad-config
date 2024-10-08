@@ -18,9 +18,8 @@ end
 
 lspconfig.pyright.setup {
   on_attach = nvlsp.on_attach,
-  -- on_init = nvlsp.on_init,
+  on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
-  filetypes = { "python" },
   settings = {
     pyright = {
       -- Using Ruff's import organizer
@@ -37,8 +36,8 @@ lspconfig.pyright.setup {
 
 lspconfig.ruff.setup {
   on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
-  filetypes = { "python" },
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -55,6 +54,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
   desc = "LSP: Disable hover capability from Ruff",
 })
+
+lspconfig.tailwindcss.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+}
 
 local function organize_imports()
   local params = {
@@ -87,9 +92,17 @@ lspconfig.eslint.setup {
   capabilities = nvlsp.capabilities,
 }
 
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
+lspconfig.gopls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  setting = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedParams = true,
+      },
+    },
+  },
+}

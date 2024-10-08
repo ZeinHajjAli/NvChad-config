@@ -8,6 +8,7 @@ local options = {
     typescriptreact = { "prettierd" },
     ss = { "prettierd" },
     html = { "prettierd" },
+    go = { "gofumpt", "goimports-reviser", "golines" },
   },
 
   format_on_save = {

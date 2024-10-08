@@ -9,17 +9,17 @@ return {
     opts = require "configs.conform",
   },
 
-  {
-    "nvimtools/none-ls.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "nvimtools/none-ls-extras.nvim",
-    },
-    opts = function()
-      return require "configs.null-ls"
-    end,
-  },
-
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "nvimtools/none-ls-extras.nvim",
+  --   },
+  --   opts = function()
+  --     return require "configs.null-ls"
+  --   end,
+  -- },
+  --
   {
     "williamboman/mason.nvim",
     lazy = false,
@@ -50,6 +50,9 @@ return {
 
   {
     "mfussenegger/nvim-dap",
+    config = function()
+      require("utils").load_mappings "nvim_dap"
+    end,
     -- lazy = false,
     -- config = function()
     -- require("dap-vscode-js").setup {
@@ -229,6 +232,34 @@ return {
     config = function(_, opts)
       local path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
+      require("utils").load_mappings "dap_python"
+    end,
+  },
+
+  {
+    "leoluz/nvim-dap-go",
+    ft = { "go" },
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+      require("utils").load_mappings "dap_go"
+    end,
+  },
+
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function(_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function()
+      require("gopher").install_deps()
     end,
   },
 
@@ -248,6 +279,7 @@ return {
       require("venv-selector").setup {
         changed_venv_hooks = { opts.ruff_hook, opts.nullLs_hook },
       }
+      require("utils").load_mappings "venv_selector"
     end,
   },
 
@@ -291,6 +323,7 @@ return {
         "python",
         "bibtex",
         "latex",
+        "go",
       },
     },
   },
