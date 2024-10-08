@@ -9,6 +9,7 @@ local options = {
     ss = { "prettierd" },
     html = { "prettierd" },
     go = { "gofumpt", "goimports-reviser", "golines" },
+    nix = { "nixfmt" },
   },
 
   format_on_save = {

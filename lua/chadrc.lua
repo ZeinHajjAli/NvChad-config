@@ -22,6 +22,7 @@ M.mason = {
     "goimports-reviser",
     "golines",
     "delve",
+    "nil",
   },
 }
 

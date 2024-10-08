@@ -13,4 +13,7 @@ map({ "n", "i", "v" }, "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "Window 
 map({ "n", "i", "v" }, "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "Window Down" })
 map({ "n", "i", "v" }, "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "Window Up" })
 
+-- gitsigns mappings
+map({ "n" }, "<leader>gp", ":Gitsigns preview_hunk<CR>", { desc = "Gitsigns: Preview Hunk" })
+map({ "n" }, "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Gitsigns: Toggle Current Line Blame" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

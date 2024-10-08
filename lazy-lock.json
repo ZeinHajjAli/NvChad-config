@@ -32,6 +32,7 @@
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "ui": { "branch": "v3.0", "commit": "da65abac6649a239a8fb89e2f2ad6262bcd0ac63" },
   "venv-selector.nvim": { "branch": "regexp", "commit": "e82594274bf7b54387f9a2abe65f74909ac66e97" },
+  "vim-fugitive": { "branch": "master", "commit": "d4877e54cef67f5af4f950935b1ade19ed6b7370" },
   "vim-tmux-navigator": { "branch": "master", "commit": "a9b52e7d36114d40350099f254b5f299a35df978" },
   "vimtex": { "branch": "master", "commit": "fcbaf66887bd19f5d973406848cf2a5ac46bd65e" },
   "volt": { "branch": "main", "commit": "43f72b49037c191eb3cfe26ba7a5574b4bfce226" },
