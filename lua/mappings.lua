@@ -6,6 +6,8 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split Vertically" })
+map("n", "<leader>sh", ":split<CR>", { desc = "Split Horizontally" })
 
 -- vim tmux navigator settings
 map({ "n", "i", "v" }, "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "Window Left" })
