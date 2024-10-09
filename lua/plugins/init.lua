@@ -1,4 +1,16 @@
 return {
+  {
+    "zeinhajjali/zedrun.nvim",
+    lazy = false,
+    config = function()
+      require("zedrun").setup {
+        commands = {
+          python = "python3 {file}",
+        },
+      }
+    end,
+    -- cmd = "ZedRun",
+  },
   { "nvim-telescope/telescope.nvim", lazy = false },
 
   {
