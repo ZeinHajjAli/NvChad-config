@@ -112,3 +112,16 @@ lspconfig.nil_ls.setup {
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
 }
+
+-- lspconfig.rust_analyzer.setup {
+--   on_attach = nvlsp.on_attach,
+--   on_init = nvlsp.on_init,
+--   capabilities = nvlsp.capabilities,
+--   settings = {
+--     ["rust_analyzer"] = {
+--       cargo = {
+--         allFeatures = true,
+--       },
+--     },
+--   },
+-- }

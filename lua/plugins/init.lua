@@ -336,6 +336,8 @@ return {
         "bibtex",
         "latex",
         "go",
+        "rust",
+        "toml",
       },
     },
   },
@@ -345,9 +347,52 @@ return {
     lazy = false,
   },
   {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
+
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^5", -- Recommended
+    lazy = false, -- This plugin is already lazy
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
+      local rust_config = require "configs.rust-tools"
+      vim.g.rustaceanvim = rust_config
+    end,
+  },
+  {
+    "saecki/crates.nvim",
+    tag = "stable",
+    event = { "BufRead Cargo.toml" },
+    config = function()
+      require("crates").setup()
+      -- require("crates").setup {
+      --   lsp = {
+      --     enabled = true,
+      --     on_attach = require("nvchad.configs.lspconfig").on_attach,
+      --     actions = true,
+      --     completion = true,
+      --     hover = true,
+      --   },
+      -- }
+    end,
+  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   opts = function()
+  --     local M = require "nvchad.configs.cmp"
+  --     table.insert(M.sources, { name = "crates" })
+  --     return M
+  --   end,
+  -- },
+  {
     "amitds1997/remote-nvim.nvim",
     event = "VeryLazy",
-    version = "0.3.9", -- Pin to GitHub releases
+    version = "*", -- Pin to GitHub releases with '*', using 0.3.9 for compat with older linux and scp protocol
     dependencies = {
       "nvim-lua/plenary.nvim", -- For standard functions
       "MunifTanjim/nui.nvim", -- To build the plugin UI
@@ -355,9 +400,6 @@ return {
     },
     config = function()
       require("remote-nvim").setup {
-        ssh_config = {
-          scp_binary = "scp -O",
-        },
         remote = {
           copy_dirs = {
             config = {
@@ -389,4 +431,14 @@ return {
       }
     end,
   },
+
+  {
+    "folke/todo-comments.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- signs = false,
+    },
+  },
+  { "wakatime/vim-wakatime", lazy = false },
 }

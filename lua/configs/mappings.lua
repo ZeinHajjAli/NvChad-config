@@ -51,27 +51,16 @@ plugin_mappings = {
       desc = "Venv Selector: Select Venv",
     },
   },
+  rust_crates = {
+    {
+      mode = "n",
+      keybinding = "<leader>rcu",
+      action = function()
+        require("crates").upgrade_all_crates()
+      end,
+      desc = "Crates: Update all crates",
+    },
+  },
 }
 
 return plugin_mappings
-
--- dap-python keybindings
--- map("n", "<leader>dpr", function()
---   require("dap-python").test_method()
--- end, { desc = "Dap Python: Test Nearest Method" })
---
--- -- dap-go keybindings
--- map("n", "<leader>dgr", function()
---   require("dap-go").debug_test()
--- end, { desc = "Dap Go: Test Nearest Method" })
---
--- map("n", "<leader>dgl", function()
---   require("dap-go").debug_last()
--- end, { desc = "Dap Go: Test Nearest Method" })
---
--- -- nvim-dap keybindings
--- map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Dap: Toggle Breakpoint" })
--- -- map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Dap: Run or continue debugger" })
---
--- -- venv-selector keybindings
--- map("n", "<leader>vs", "<cmd>VenvSelect<cr>", { desc = "Venv Selector: Select Venv" })
