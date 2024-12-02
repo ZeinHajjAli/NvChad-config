@@ -43,6 +43,9 @@ return {
     opts = function()
       local opts = require "nvchad.configs.nvimtree"
       opts.view.side = "right"
+      opts.git = {
+        ignore = false,
+      }
       return opts
     end,
   },
